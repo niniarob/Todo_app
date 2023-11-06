@@ -1,10 +1,8 @@
-import "./styles/TodoApp.styled";
-import { Div, Li, StyledTaskListDiv, TimeStyle, StyledTaskListDivTimeDelete, H5, H4 } from "./styles/TodoApp.styled";
-import { Todo } from "./Model";
 import React, { useState } from 'react';
 import EmptyCheckBox from "./assets/checkbox (1).svg";
 import CheckBox from "./assets/checkbox.svg";
-import "./styles/TodoApp.styled"; 
+import { Div, Li, StyledTaskListDiv, TimeStyle, StyledTaskListDivTimeDelete, H5, H4 } from "./styles/TodoApp.styled";  // Add import statements for styled components
+import { Todo } from "./Model";  
 
 interface Props {
     todos: Todo[];
@@ -36,7 +34,22 @@ export default function TaskList({ todos, setTodos }: Props) {
     const handleTaskClick = (index: number) => {
         const newShowCheckboxes = [...showCheckboxes];
         newShowCheckboxes[index] = !showCheckboxes[index];
-        setShowCheckboxes(newShowCheckboxes); 
+        setShowCheckboxes(newShowCheckboxes);
+    };
+
+    const handleDelete = (index: number) => {
+        const updatedTodos = [...todos];
+        updatedTodos.splice(index, 1);
+        setTodos(updatedTodos);
+    };
+
+    const getRandomBorderColor = () => {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
     };
 
     return (
@@ -63,10 +76,12 @@ export default function TaskList({ todos, setTodos }: Props) {
                         <TimeStyle>
                             {hoveredTimes[index]}
                         </TimeStyle>
-                        <H4></H4>
+                        <H4 style={{ borderColor: getRandomBorderColor() }} onClick={() => handleDelete(index)}>
+                        </H4>
                     </StyledTaskListDivTimeDelete>
                 </Li>
             ))}
         </Div>
     );
 }
+

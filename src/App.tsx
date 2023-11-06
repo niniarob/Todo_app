@@ -20,9 +20,6 @@ function App() {
     }
   };
 
-  // console.log(todo);
-
-
   return (
     <>
       <GlobalStylesComponent />
