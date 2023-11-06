@@ -11,7 +11,6 @@ const GlobalStyles = createGlobalStyle`
     align-items: center;
     height: 100vh;
     font-family: Arial, sans-serif;
-    // background-color:#E4E4E4;
     background: #F8F8F8;
   }
 `;

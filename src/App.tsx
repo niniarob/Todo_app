@@ -29,9 +29,6 @@ function App() {
       <TodoAppDiv>
       <TaskInput  todo={todo} setTodo={setTodo} HandleAdd={HandleAdd} />
       <TaskList todos={todos} setTodos={setTodos}/>
-      {/* {todos.map((t) => (
-        <li>{t.todo}</li>
-      ))} */}
       </TodoAppDiv>
     </>
   );

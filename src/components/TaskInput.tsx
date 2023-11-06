@@ -3,7 +3,6 @@ import {Form} from "./styles/TodoApp.styled";
 import { Input } from "./styles/TodoApp.styled";
 
 
-
 interface Props{
     todo:string;
     setTodo:React.Dispatch<React.SetStateAction<string>>;
